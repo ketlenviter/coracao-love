@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>core</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+#ui {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 100px auto;
+}
+.love_word {
+    position: absolute;
+    color: #ea80b0;
+    font-size: 14px;
+    text-shadow: 0 0 10px #fff;
+    white-space: nowrap;
+    pointer-events: none;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1;}
+    50% { transform: translateY(-20px); opacity: 0.7;}
+    100% { transform: translateY(0); opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="ui"></div>
+
+<script defer>
+    const ui = document.getElementById("ui");
+
+    const total = 150;
+
+    for (let i = 0; i < total; i++) {
+        const t = Math.PI * 2 * (i / total);
+
+        const x = 16 * Math.pow(Math.sin(t), 3);
+        const y = 
+        13 * Math.cos(t) -
+        5 * Math.cos(2 * t) -
+        2 * Math.cos(3 *t) -
+        Math.cos(4 *t);
+
+        const span = document.createElement("span");
+        span.className = "love_word";
+        span.innerText = "eu amo você";
+
+        span.style.left = 150 + x * 20 + "px";
+        span.style.top = 150 - y * 20 + "px";
+
+        span.style.animationDelay = i * 0.05 + "s";
+
+        ui.appendChild(span);
+    }
+</script>
+
+</body>
+</html>

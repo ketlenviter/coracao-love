@@ -18,6 +18,9 @@
     width: 300px;
     height: 300px;
     margin: 100px auto;
+
+    animation: pulse 1s infinite;
+    filter: drop-shadow(0 0 10px #ea80b0);
 }
 .love_word {
     position: absolute;
@@ -26,7 +29,7 @@
     text-shadow: 0 0 10px #fff;
     white-space: nowrap;
     pointer-events: none;
-    animation: float 4s ease-in-out infinite;
+    animation: float 1s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -34,6 +37,14 @@
     50% { transform: translateY(-20px); opacity: 0.7;}
     100% { transform: translateY(0); opacity: 1;}
 }
+@keyframes pulse {
+    0% {transform: scale(1);}
+    25% {transform: scale(1.1)};
+    50% {transform: scale(1);}
+    75% {transform: scale(1.15);}
+    100% {transform: scale(1)}
+}
+
 </style>
 </head>
 
@@ -60,8 +71,8 @@
         span.className = "love_word";
         span.innerText = "eu amo você";
 
-        span.style.left = 150 + x * 20 + "px";
-        span.style.top = 150 - y * 20 + "px";
+        span.style.left = 150 + x * 16 + "px";
+        span.style.top = 150 - y * 16 + "px";
 
         span.style.animationDelay = i * 0.05 + "s";
 
